@@ -107,6 +107,30 @@ async function migrateMPDictionaryToConstants(payload) {
           // Directly copy only existing locales from source
           const valueField = { ...sourceFieldLocales };
 
+          // Hardcode fix only for uniqueRequirement
+            if (fieldId === "uniqueRequirement") {
+            Object.keys(valueField).forEach(locale => {
+                if (valueField[locale] !== null && valueField[locale] !== undefined) {
+                valueField[locale] = String(valueField[locale]);
+                }
+            });
+            }
+
+        //   const valueField = {};  //converting nonstring values to strings as got error for uniqueRequirement
+        //   for (const locale of Object.keys(sourceFieldLocales)) {
+        //     const rawValue = sourceFieldLocales[locale];
+        //     // Convert non-string values to strings (e.g., integers to strings)
+        //     valueField[locale] = typeof rawValue === 'string' ? rawValue : String(rawValue);
+        //   }
+
+        // const valueField = {};
+        // Object.entries(sourceFieldLocales).forEach(([locale, val]) => {
+        // if (val !== null && val !== undefined) {
+        //     valueField[locale] =
+        //     typeof val === "string" ? val : String(val);
+        // }
+        // });
+
           if (Object.keys(valueField).length === 0) {
             log("warn", `Empty value field, skipping field: ${fieldId}`);
             return;
