@@ -13,7 +13,6 @@ async function migrateMPDictionaryToConstants(payload) {
     valueFieldId,
     internalNameFieldId,
     excludedFieldIds = [],
-    publish = false
   } = payload;
 
   try {
@@ -66,9 +65,7 @@ async function migrateMPDictionaryToConstants(payload) {
           }
         );
 
-        if (publish) {
-          await newEntry.publish();
-        }
+        await newEntry.publish();
 
         createdEntries.push(newEntry.sys.id);
       })
