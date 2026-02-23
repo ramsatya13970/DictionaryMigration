@@ -1,0 +1,20 @@
+{
+  "name": "contentful-mp-to-constants-migration",
+  "version": "1.1.0",
+  "description": "Migrate Library | MP | Dictionary entry fields to Library | Constants Dictionary entries (Dynamic Environment Support)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "dependencies": {
+    "contentful-management": "^10.36.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "nodemailer": "^8.0.1",
+    "p-limit": "^3.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.13"
+  }
+}

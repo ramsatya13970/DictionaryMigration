@@ -1,0 +1,13 @@
+# Local .terraform directories
+**/.terraform/*
+
+
+# Node modules
+node_modules/
+
+# dotenv environment variables
+.env
+
+#logs
+logs/
+

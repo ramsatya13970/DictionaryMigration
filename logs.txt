@@ -1,0 +1,527 @@
+
+Migrating entries from content type "libraryMeetingPlaceDictionary" to "libraryConstantsDictionary" in environment "master-backup-261225"...
+Processing field "uniqueRequirement" with value: { en: 1 }
+Processing field "internalName" with value: { en: 'Global | Library | Dictionary' }
+Processing field "all" with value: {
+  cs: 'Vše',
+  en: 'All',
+  es: 'Todos',
+  fr: 'Tous',
+  it: 'Tutto',
+  ko: '전체 보기',
+  pl: 'Wszystko',
+  pt: 'Todos',
+  sk: 'Všetko',
+  sv: 'Alla'
+}
+Processing field "allFilters" with value: {
+  cs: 'Všechny filtry',
+  en: 'All filters',
+  es: 'Todos los filtros',
+  fr: 'Tous les filtres',
+  it: 'Tutti i filtri',
+  pl: 'Wszystkie filtry',
+  pt: 'Todos os filtros',
+  sk: 'Všetky filtre',
+  sv: 'Visa alla'
+}
+Processing field "contantUsEMailSubjectLineTemplate" with value: {
+  cs: 'Děkujeme, že jsi nás kontaktoval/a {0}!',
+  en: 'Thank you for contacting {0}!',
+  es: '¡Gracias por contactar con nosotros!',
+  fr: 'Merci de nous avoir contacté {0} !',
+  it: 'Grazie per aver contattato {0}!',
+  pl: 'Dziękujemy za kontakt {0}!',
+  pt: 'Obrigada pelo seu contacto {0}!',
+  sk: 'Ďakujeme, že ste kontaktovali {0}!',
+  sv: 'Tack för att du kontaktar {0}!'
+}
+Processing field "cookieSettings" with value: {
+  en: 'Cookies Settings',
+  fr: 'Paramètres des cookies',
+  sv: 'Cookie inställningar'
+}
+InvalidEntry: {    
+  "status": 422,   
+  "statusText": "",
+  "message": "Validation error",
+  "details": {
+    "errors": [
+      {
+        "name": "type",
+        "value": 1,
+        "type": "Symbol",
+        "details": "The type of \"value\" is incorrect, expected type: Symbol",
+        "path": [
+          "fields",
+          "value",
+          "en"
+        ]
+      }
+    ]
+  },
+  "request": {
+    "url": "/spaces/vy8x7x5kxmef/environments/master-backup-261225/entries",
+    "headers": {
+      "Accept": "application/json, text/plain, */*",
+      "Content-Type": "application/vnd.contentful.management.v1+json",
+      "X-Contentful-User-Agent": "sdk contentful-management.js/0.0.0-determined-by-semantic-release; platform node.js/v18.17.1; os Windows/v18.17.1;",
+      "Authorization": "Bearer ...rGBLU",
+      "X-Contentful-Content-Type": "libraryConstantsDictionary",
+      "User-Agent": "axios/1.5.1",
+      "Content-Length": "116",
+      "Accept-Encoding": "gzip, compress, deflate, br"
+    },
+    "method": "post",
+    "payloadData": "{\"fields\":{\"key\":{\"en\":\"uniqueRequirement\"},\"value\":{\"en\":1},\"internalName\":{\"en\":\"constants | uniqueRequirement\"}}}"
+  },
+  "requestId": "7b4c90cd-9f88-4df9-9de8-914a9caf71cf"
+}
+    at errorHandler (C:\Users\Ramnarayan.Sahu\OneDrive - Truminds Software Systems Pvt Ltd\Desktop\contentful-mp-to-constants-migration-dynamic-env\node_modules\contentful-management\dist\contentful-management.node.js:16253:15)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async RestAdapter.makeRequest (C:\Users\Ramnarayan.Sahu\OneDrive - Truminds Software Systems Pvt Ltd\Desktop\contentful-mp-to-constants-migration-dynamic-env\node_modules\contentful-management\dist\contentful-management.node.js:3961:12)
+    at async C:\Users\Ramnarayan.Sahu\OneDrive - Truminds Software Systems Pvt Ltd\Desktop\contentful-mp-to-constants-migration-dynamic-env\services\migrationService.js:61:26
+Processing field "clearAll" with value: {
+  cs: 'Vyčistit vše',
+  en: 'Clear all',
+  es: 'Borrar todo',
+  fr: 'Tout déselectionner',
+  it: 'Elimina tutto',
+  pl: 'Wyczyść wszystko',
+  pt: 'Limpar tudo',
+  sk: 'Vymazať všetko',
+  sv: 'Töm filter'
+}
+Processing field "find" with value: {
+  cs: 'Hledej',
+  en: 'Find',
+  es: 'Encontrar',
+  fr: 'Chercher',
+  it: 'Trova',
+  ko: '검색',
+  pl: 'Szukaj',
+  pt: 'Procurar',
+  sk: 'Hľadať',
+  sv: 'Hitta'
+}
+Processing field "noSearchResultsMainFloorPlan" with value: {
+  cs: 'Omlouváme se, ale nemáme žádné výsledky tvého vyhledávání',
+  en: 'We’re sorry, there are no results for your search',
+  es: 'Lo sentimos, no hay resultados que coincidan con tu búsqueda',
+  fr: "Désolé, il n'y a pas de résultats pour votre recherche",
+  it: 'Siamo spiacenti, non ci sono risultati per la tua ricerca',
+  pl: 'Przepraszamy, brak wyniku dla Twojego wyszukiwania',
+  pt: 'Lamentamos mas não existem resultados para a sua pesquisa',
+  sk: 'Ospravedlňujeme sa, pre váš výber neexistujú žiadne výsledky',
+  sv: 'Vi hittar tyvärr inga resultat på din sökning'
+}
+Processing field "noSearchResultsSecondaryFloorPlan" with value: {
+  cs: 'Ujisti se, že je slovo správně napsáno nebo zkus jiné klíčové slovo.',
+  en: 'Make sure that the word is spelled correctly, or try a different key word.',
+  es: 'Asegúrate que lo has escrito correctamente o busca unas palabras diferentes',
+  fr: 'Vérifiez que vous avez bien orthographié votre mot ou tentez une autre recherche',
+  it: 'Assicurati che la parola inserita sia corretta, oppure utilizza una parola chiave diversa.',
+  pl: 'Upewnij się, że fraza jest napisana poprawnie lub spróbuj z innym słowem kluczowym.',      
+  pt: 'Confirme que a palavra está escrita corretamente ou tente procurar com outra palavra.',    
+  sk: 'Skontrolujte, či je slovo správne napísané alebo skúste iné kľúčové slovo.',
+  sv: 'Har du stavat rätt? Testa annars med ett annat sökord.'
+}
+Processing field "of" with value: {
+  cs: 'z',
+  en: 'of',
+  es: 'de',
+  fr: 'de',
+  it: 'de',
+  pl: 'z',
+  pt: 'de',
+  sk: 'z',
+  sv: 'av'
+}
+Processing field "offers" with value: {
+  cs: 'Nabídky',
+  en: 'Offers',
+  es: 'Ofertas',
+  fr: 'Offres',
+  it: 'Offerte',
+  ko: '세일',
+  pl: 'Promocje',
+  pt: 'Ofertas',
+  sk: 'Ponuky',
+  sv: 'Erbjudanden'
+}
+Processing field "openingHours" with value: {
+  en: 'Opening Hours',
+  fr: "Horaires d'ouverture",
+  sk: 'Otváracie hodiny'
+}
+Processing field "openingHoursClosed" with value: {
+  cs: 'Zavřeno',
+  en: 'Closed',
+  es: 'Cerrado',
+  fr: 'Fermé',
+  it: 'Chiuso',
+  pl: 'Zamknięte',
+  pt: 'Encerrado ',
+  sk: 'Zatvorené',
+  sv: 'Stängt'
+}
+Processing field "openingHoursOpenToday" with value: {
+  cs: 'Dnes otevřené:',
+  en: 'Open today:',
+  es: 'Abierto hoy',
+  fr: "Ouvert aujourd'hui",
+  it: 'Oggi aperto:',
+  pl: 'Dzisiaj otwarte:',
+  pt: 'Aberto no dia de hoje',
+  sk: 'Dnes otvorené: ',
+  sv: 'Öppet idag:'
+}
+Processing field "openingHoursClosedToday" with value: {
+  cs: 'Dnes zavřené:',
+  en: 'Closed today',
+  es: 'Cerrado hoy',
+  fr: "Fermé aujourd'hui",
+  it: 'Oggi chiuso',
+  pl: 'Dzisiaj zamknięte',
+  pt: 'Encerrado no dia de hoje',
+  sk: 'Dnes zatvorené',
+  sv: 'Stängt idag'
+}
+Processing field "openingHoursBlockExceptionTitle" with value: {
+  cs: 'Výjimky',
+  en: 'Exceptions',
+  es: 'Excepciones',
+  fr: 'Ouvertures Exceptionnelles',
+  it: 'Eccezioni',
+  pl: 'Specjalne godziny otwarcia',
+  pt: 'Exceções',
+  sk: 'Výnimky',
+  sv: 'Avvikande öppettider'
+}
+Processing field "openingHoursTenantBlockLinkTitle" with value: {
+  cs: 'Navštiv stránky obchodu',
+  en: 'Visit store page',
+  es: 'Visita la página de la tienda',
+  fr: 'Aller à la page du magasin',
+  it: 'Visita la pagina del negozio',
+  pl: 'Odwiedź stronę sklepu',
+  pt: 'Visitar a página da loja',
+  sk: 'Navštíviť stránku obchodu',
+  sv: 'Besök butikens sida'
+}
+Processing field "pastEvent" with value: {
+  cs: 'Uskutečněná akce',
+  en: 'Past event',
+  es: 'Evento finalizado',
+  fr: 'Evènement passé',
+  it: 'Evento passato',
+  pl: 'Minione wydarzenie',
+  pt: 'Evento terminado',
+  sk: 'Minulé podujatie',
+  sv: 'Tidigare evenemang'
+}
+Processing field "showResult" with value: {
+  cs: 'Ukaž výsledek',
+  en: 'Show result',
+  es: 'Mostrar resultados',
+  fr: 'Voir le résultat',
+  it: 'Mostra il risultato',
+  pl: 'Pokaż wynik',
+  pt: 'Apresentar resultado',
+  sk: 'Zobraziť výsledok',
+  sv: 'Visa resultat'
+}
+Processing field "showResults" with value: {
+  cs: 'Ukaž výsledky',
+  en: 'Show results',
+  es: 'Mostrar resultados',
+  fr: 'Voir les résultats',
+  it: 'Mostra i risultati',
+  pl: 'Pokaż wyniki',
+  pt: 'Apresentar resultados',
+  sk: 'Zobraziť výsledky',
+  sv: 'Visa resultat'
+}
+Processing field "showMore" with value: {
+  cs: 'Ukaž více',
+  en: 'Show more',
+  es: 'Mostrar más',
+  fr: 'Voir plus',
+  it: 'Mostra di più',
+  pl: 'Pokaż więcej',
+  pt: 'Ver mais',
+  sk: 'Zobraziť viac',
+  sv: 'Visa mer'
+}
+Processing field "showLess" with value: {
+  en: 'Show less',
+  es: 'Mostrar menos',
+  fr: 'Voir moins',
+  pt: 'Ver menos'
+}
+Processing field "showing" with value: {
+  cs: 'Zobrazuje',
+  en: 'Showing',
+  es: 'Mostrando',
+  fr: 'Voir',
+  it: 'Mostrando',
+  pl: 'Pokazuje',
+  pt: 'A apresentar',
+  sk: 'Zobrazujem',
+  sv: 'Visar'
+}
+Processing field "noMatches" with value: {
+  cs: 'Není shoda s filtrem či hledáním',
+  en: 'There are no matches for your filter or search',
+  es: 'Lo sentimos, no hay resultados que coincidan con tu búsqueda',
+  fr: "Il n'y a pas de résultats avec ces filtres",
+  it: 'Non ci sono corrispondenze con il tuo filtro o ricerca',
+  pl: 'Brak wyników dla Twojego filtra lub wyszukiwania',
+  pt: 'Lamentamos mas não existem resultados para a sua pesquisa',
+  sk: 'Nenašli sa zhody pre váš filter alebo hľadaný výraz.',
+  sv: 'Din sökning gav inga resultat'
+}
+Processing field "validUntil" with value: {
+  cs: 'Platné do',
+  en: 'Valid until',
+  es: 'Válido hasta',
+  fr: "Valide jusqu'au",
+  it: 'Valido fino a',
+  pl: 'Ważne do',
+  pt: 'Válido até',
+  sk: 'Platné do',
+  sv: 'Giltig till'
+}
+Processing field "viewOnMap" with value: {
+  cs: 'Ukaž na mapě',
+  en: 'View on map',
+  es: 'Ver en el mapa',
+  fr: 'Voir sur la carte',
+  it: 'Visualizza sulla mappa',
+  pl: 'Zobacz na mapie',
+  pt: 'Ver no mapa',
+  sk: 'Zobraziť na mape',
+  sv: 'Se på karta'
+}
+Processing field "viewOffer" with value: {
+  cs: 'Ukaž nabídku',
+  en: 'View offer',
+  es: 'Ver oferta',
+  fr: "Voir l'offre",
+  it: "Visualizza l'offerta",
+  pl: 'Zobacz promocję',
+  pt: 'Ver benefícios',
+  sk: 'Zobraziť ponuku',
+  sv: 'Se erbjudande'
+}
+Processing field "readMore" with value: {
+  cs: 'Čti více',
+  en: 'Read more',
+  es: 'Leer más',
+  fr: 'Lire la suite',
+  it: 'Leggi di più',
+  pl: 'Czytaj więcej',
+  pt: 'Ler mais',
+  sk: 'Ďalšie informácie',
+  sv: 'Läs mer'
+}
+Processing field "readLess" with value: {
+  en: 'Read less',
+  es: 'Leer menos',
+  fr: 'Réduire',
+  it: 'Leggi di meno',
+  pl: 'Czytaj mniej',
+  pt: 'Ler menos',
+  sk: 'Menej informácií',
+  sv: 'Mindre text'
+}
+Processing field "searchFacetOther" with value: {
+  cs: 'Další',
+  en: 'Other',
+  es: 'Otros',
+  fr: 'Autre',
+  it: 'Altro',
+  pl: 'Inne',
+  pt: 'Outro',
+  sk: 'Iné',
+  sv: 'Övriga'
+}
+Processing field "search" with value: {
+  cs: 'Hledej',
+  en: 'Search',
+  es: 'Buscar',
+  fr: 'Rechercher',
+  it: 'Ricerca',
+  pl: 'Szukaj',
+  pt: 'Procurar',
+  sk: 'Hľadať',
+  sv: 'Sök'
+}
+Processing field "floor" with value: {
+  cs: 'Podlaží',
+  en: 'Floor',
+  es: 'Planta',
+  fr: 'Niveau',
+  it: 'Piano',
+  pl: 'Poziom',
+  pt: 'Piso',
+  sk: 'Poschodie',
+  sv: 'Våning'
+}
+Processing field "outside" with value: {
+  cs: 'Venku',
+  en: 'Outside',
+  es: 'Exterior',
+  fr: 'Extérieur',
+  it: 'Esterno',
+  pl: 'Na zewnątrz',
+  pt: 'Exterior',
+  sk: 'Vonku',
+  sv: 'Utomhus'
+}
+Processing field "buyNow" with value: {
+  cs: 'Koupit nyní',
+  en: 'Buy now',
+  es: 'Comprar ahora',
+  fr: 'Acheter maintenant',
+  it: 'Acquista ora',
+  pl: 'Kup teraz',
+  pt: 'Comprar agora',
+  sk: 'Kúpiť teraz',
+  sv: 'Köp nu'
+}
+Processing field "free" with value: { en: 'Free', pt: 'Gratuito', sv: 'Gratis' }
+Processing field "isAvailableOn" with value: {
+  en: 'is available on',
+  pt: 'está disponível em',
+  sk: 'is available on',
+  sv: 'finns tillgänglig på'
+}
+Processing field "buyAtIkea" with value: {
+  cs: 'Kupte si v IKEA',
+  en: 'Buy at IKEA',
+  es: 'Comprar en IKEA',
+  fi: 'Osta IKEA -tavaratalosta',
+  fr: 'Acheter chez IKEA',
+  hi: 'IKEA पर खरीदें',
+  it: "Acquista all'IKEA",
+  ko: 'IKEA에서 구매하기',
+  pl: 'Kup w IKEA',
+  pt: 'Comprar na IKEA',
+  sk: 'kúpiť v IKEA',
+  sv: 'Köp på IKEA',
+  uk: 'Купити в IKEA'
+}
+Processing field "filters" with value: {
+  cs: 'Filtry',
+  en: 'Filters',
+  es: 'Filtros',
+  fi: 'Suodattimet',
+  fr: 'Filtres',
+  hi: 'फिल्टर',
+  it: 'Filtri',
+  ko: '필터',
+  pl: 'Filtry',
+  pt: 'Filtros',
+  sk: 'Filtre',
+  sv: 'Filter',
+  uk: 'Фільтри',
+  'zh-CN': '过滤器'
+}
+Processing field "category" with value: {
+  cs: 'Kategorie',
+  en: 'Category',
+  es: 'Categoría',
+  fi: 'Luokka',
+  fr: 'Catégorie',
+  hi: 'वर्ग',
+  it: 'Categoria',
+  ko: '카테고리',
+  pl: 'Kategoria',
+  pt: 'Categoria',
+  sk: 'Kategória',
+  sv: 'kategori',
+  uk: 'Категорія',
+  'zh-CN': '类别'
+}
+Processing field "priceLevel" with value: {
+  cs: 'Cenová úroveň',
+  en: 'Price level',
+  es: 'Nivel de precios',
+  fi: 'Hintataso',
+  fr: 'Niveau de prix',
+  hi: 'मूल्य स्तर',
+  it: 'Livello del prezzo',
+  ko: '가격대',
+  pl: 'Poziom ceny',
+  pt: 'Nível de preço',
+  sk: 'Cenová úroveň',
+  sv: 'Prisnivå',
+  uk: 'рівень цін',
+  'zh-CN': '价位'
+}
+Processing field "cuisine" with value: {
+  cs: 'Kuchyně',
+  en: 'Cuisine',
+  es: 'Cocina',
+  fi: 'Keittiö',
+  fr: 'Cuisine',
+  hi: 'भोजन',
+  it: 'Cucina',
+  ko: '요리',
+  pl: 'Kuchnia',
+  pt: 'Cozinha',
+  sk: 'Kuchyňa',
+  sv: 'Kök',
+  uk: 'Кухня',
+  'zh-CN': '美食'
+}
+Processing field "additionalPerks" with value: {
+  cs: 'Další výhody',
+  en: 'Additional perks',
+  es: 'Ventajas adicionales',
+  fi: 'Lisäetuja',
+  fr: 'Avantages supplémentaires',
+  hi: 'अतिरिक्त सुविधाएं',
+  it: 'Ulteriori vantaggi',
+  ko: '추가 혜택',
+  pl: 'Dodatkowe korzyści',
+  pt: 'Vantagens adicionais',
+  sk: 'Ďalšie výhody',
+  sv: 'Ytterligare förmåner',
+  uk: 'Додаткові пільги',
+  'zh-CN': '额外优惠'
+}
+Processing field "more" with value: {
+  cs: 'Více na',
+  en: 'More',
+  es: 'Más',
+  fi: 'Lisää',
+  fr: 'Plus',
+  hi: 'अधिक',
+  it: 'Altro',
+  ko: '더 보기',
+  pl: 'Więcej',
+  pt: 'Saber mais',
+  sk: 'Viac na',
+  sv: 'Mer om',
+  uk: 'Більше',
+  'zh-CN': '更多'
+}
+Processing field "from" with value: { en: 'From' }
+Processing field "until" with value: { en: 'Until' }
+Processing field "searchServices" with value: { en: 'Search Services' }
+Processing field "featuredIkeaProduct" with value: {
+  cs: 'Doporučený produkt ikea',
+  en: 'Featured IKEA Product',
+  es: 'Producto destacado de Ikea',
+  fi: 'Suositeltu ikea-tuote',
+  fr: 'Produit Ikea en vedette',
+  it: 'Prodotto Ikea in evidenza',
+  ko: '추천 이케아 제품',
+  pl: 'Polecany produkt ikea',
+  pt: 'Produto ikea em destaque',
+  sk: 'Odporúčaný produkt ikea',
+  sv: 'Utvald ikea-produkt',
+  uk: 'Рекомендований продукт ikea'
+}
