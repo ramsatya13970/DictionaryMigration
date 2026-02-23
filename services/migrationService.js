@@ -35,7 +35,7 @@ async function migrateMPDictionaryToConstants(payload) {
 
     const environment = await getEnvironment(environmentId);
 
-    // ✅ Only fetch default locale (no need to map all locales)
+    // Only fetch default locale (no need to map all locales)
     const localesResponse = await environment.getLocales();
     const defaultLocale = localesResponse.items.find(l => l.default).code;
 
@@ -45,7 +45,24 @@ async function migrateMPDictionaryToConstants(payload) {
     const sourceEntry =
       await environment.getEntry(sourceEntryId);
 
+    // Fetch all existing entries from target content type to check for duplicates
+    log("info", `Fetching existing entries from target content type: ${targetContentTypeId}`);
+    const existingEntries = await environment.getEntries({
+      content_type: targetContentTypeId,
+      limit: 1000 // Adjust limit as needed
+    });
+
+    // Create a Map of existing keys to entry IDs for quick lookup and logging
+    const existingKeys = new Map();
+    existingEntries.items.forEach(entry => {
+      if (entry.fields[keyFieldId] && entry.fields[keyFieldId][defaultLocale]) {
+        existingKeys.set(entry.fields[keyFieldId][defaultLocale], entry.sys.id);
+      }
+    });
+    log("info", `Found ${existingKeys.size} existing entries`, { existingKeys: Array.from(existingKeys.entries()) });
+
     const createdEntries = [];
+    const skippedEntries = [];
     const failedEntries = [];
 
     const tasks = sourceContentType.fields.map(field =>
@@ -65,13 +82,25 @@ async function migrateMPDictionaryToConstants(payload) {
             return;
           }
 
-          // ✅ Directly copy only existing locales from source
+          // Directly copy only existing locales from source
           const valueField = { ...sourceFieldLocales };
 
           if (Object.keys(valueField).length === 0) {
             log("warn", `Empty value field, skipping field: ${fieldId}`);
-            return; 
+            return;
             // Prevents creating empty constants
+          }
+
+          // Check if entry with this key already exists using Map
+          const existingEntryId = existingKeys.get(fieldId);
+          if (existingEntryId) {
+            log("info", `Entry already exists for field: ${fieldId} with entry ID: ${existingEntryId}, skipping creation`);
+            skippedEntries.push({
+              fieldId,
+              existingEntryId,
+              reason: "Entry already exists"
+            });
+            return;
           }
 
           log("info", `Creating entry for field: ${fieldId}`);
@@ -123,6 +152,7 @@ async function migrateMPDictionaryToConstants(payload) {
     log("info", "Migration process completed", { 
       totalProcessed: sourceContentType.fields.length,
       successfulCount: createdEntries.length,
+      skippedCount: skippedEntries.length,
       failedCount: failedEntries.length
     });
 
@@ -133,8 +163,10 @@ async function migrateMPDictionaryToConstants(payload) {
       success,
       environmentUsed: environmentId,
       createdCount: createdEntries.length,
+      skippedCount: skippedEntries.length,
       failedCount: failedEntries.length,
       createdEntries,
+      skippedEntries: skippedEntries.length > 0 ? skippedEntries : undefined,
       failedEntries: failedEntries.length > 0 ? failedEntries : undefined
     };
 
