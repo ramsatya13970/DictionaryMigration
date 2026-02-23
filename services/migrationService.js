@@ -14,6 +14,36 @@ function log(level, message, data = null) {
   }
 }
 
+// Function to fetch all entries from a content type using pagination
+async function fetchAllExistingKeyEntries(environment, contentTypeId, keyFieldId, defaultLocale) {
+  const existingKeys = new Map();
+  let skip = 0;
+  const pageLimit = 1000;
+  let hasMore = true;
+  
+  while (hasMore) {
+    const entriesResponse = await environment.getEntries({
+      content_type: contentTypeId,
+      limit: pageLimit,
+      skip: skip
+    });
+    
+    entriesResponse.items.forEach(entry => {
+      if (entry.fields[keyFieldId] && entry.fields[keyFieldId][defaultLocale]) {
+        existingKeys.set(entry.fields[keyFieldId][defaultLocale], entry.sys.id);
+      }
+    });
+    
+    if (entriesResponse.items.length < pageLimit) {
+      hasMore = false;
+    } else {
+      skip += pageLimit;
+    }
+  }
+  
+  return existingKeys;
+}
+
 async function migrateMPDictionaryToConstants(payload) {
   const {
     environmentId,
@@ -47,19 +77,11 @@ async function migrateMPDictionaryToConstants(payload) {
 
     // Fetch all existing entries from target content type to check for duplicates
     log("info", `Fetching existing entries from target content type: ${targetContentTypeId}`);
-    const existingEntries = await environment.getEntries({
-      content_type: targetContentTypeId,
-      limit: 1000 // Adjust limit as needed
-    });
-
-    // Create a Map of existing keys to entry IDs for quick lookup and logging
-    const existingKeys = new Map();
-    existingEntries.items.forEach(entry => {
-      if (entry.fields[keyFieldId] && entry.fields[keyFieldId][defaultLocale]) {
-        existingKeys.set(entry.fields[keyFieldId][defaultLocale], entry.sys.id);
-      }
-    });
-    log("info", `Found ${existingKeys.size} existing entries`, { existingKeys: Array.from(existingKeys.entries()) });
+    
+    const existingKeys = await fetchAllExistingKeyEntries(environment, targetContentTypeId, keyFieldId, defaultLocale);
+    
+    log("info", `Found ${existingKeys.size} existing entries`, { existingKeys: existingKeys });
+    
 
     const createdEntries = [];
     const skippedEntries = [];
